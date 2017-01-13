@@ -59,7 +59,7 @@ func WriteRandomData(influxClient *client.Client) {
 	columns := []string{"col1", "col2"}
 	transactions := []string{"INSERT", "UPDATE", "DELETE"}
 	pts := make([]client.Point, 0)
-	rand.Seed(42)
+	rand.Seed(time.Now().UTC().UnixNano())
 
 	for _, table := range tables {
 		for _, col := range columns {
